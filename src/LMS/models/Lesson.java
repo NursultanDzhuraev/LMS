@@ -42,10 +42,10 @@ public class Lesson {
 
     @Override
     public String toString() {
-        return "Lesson{" +
-                "id=" + id +
-                ", lessonName='" + lessonName + '\'' +
-                ", taskDescription='" + taskDescription + '\'' +
-                '}' + "\n";
+        return "         Lesson{" +
+                "id =              " + id +"\n"+
+                " lessonName =     " + lessonName + '\n' +
+                " taskDescription =" + taskDescription + '\n'
+                 + "\n";
     }
 }

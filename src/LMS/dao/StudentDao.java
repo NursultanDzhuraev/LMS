@@ -13,6 +13,7 @@ public interface StudentDao {
     List<Student> getAllStudentByGroupName(String groupName);
     List<Lesson> getAllStudentLesson(String email);
     void deleteStudent(String email);
-    Student singIn(String email, String password);
+    Student singIn(String email);
     void getAllLessonStudents(String email,String password);
+    void updateAdmin(String adminEmail,Student newStudent);
 }

@@ -62,12 +62,12 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group{" +
-                "id=" + id +
-                ", groupName='" + groupName + '\'' +
-                ", description='" + description + '\'' +
-                ", lessons=" + lessons +
-                ", students=" + students +
-                '}'+"\n";
+        return "            Group        \n" +
+                "    id         : " + id +"\n"+
+                " groupName    : " + groupName + "\n" +
+                " description= : " + description + "\n" +
+                " lessons      : " + lessons +"\n"+
+                " students     : " + students
+                +"\n";
     }
 }

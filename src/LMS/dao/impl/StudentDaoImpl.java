@@ -16,21 +16,19 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public void savedDefaultAdmin() {
         DateBase.baseStudent.add(new Student("Nursultan", "Dzhuraev",
-                "nurs@gmail.com", "nurs123!", Gender.MAN, Role.ADMIN));
+                "admin@gmail.com", "admin123!", Gender.MAN, Role.ADMIN));
     }
 
     @Override
     public void addStudent(String groupName, Student student) {
-        if (!Validation.checkEmail(student.getEmail()) && !Validation.checkPassword(student.getPassword())) {
-            System.out.println("invalid email and password ");
-        } else {
+
             for (Group group1 : DateBase.baseGroup) {
                 if (group1.getGroupName().equalsIgnoreCase(groupName)) {
                     group1.getStudents().add(student);
                     DateBase.baseStudent.add(student);
                     System.out.println(group1 + "Ийгиликтуу сакталды!");
                     break;
-                }
+
             }
         }
     }
@@ -115,9 +113,9 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public Student singIn(String email, String password) {
+    public Student singIn(String email) {
         for (Student student : DateBase.baseStudent) {
-            if (student.getEmail().equals(email) && student.getPassword().equals(password)) {
+            if (student.getEmail().equals(email)) {
                 return student;
             }
         }
@@ -133,6 +131,25 @@ public class StudentDaoImpl implements StudentDao {
                 break;
             }
 
+        }
+    }
+
+    @Override
+    public void updateAdmin(String adminEmail,Student newStudent) {
+
+        for (Student student : DateBase.baseStudent) {
+                if (student.getEmail().equals(adminEmail) ) {
+                    student.setFirstName(newStudent.getFirstName());
+                    student.setLastName(newStudent.getLastName());
+                    student.setEmail(newStudent.getEmail());
+                    student.setPassword(newStudent.getPassword());
+                    student.setGender(newStudent.getGender());
+                    newStudent.setId(1L);
+                    newStudent.setRole(Role.ADMIN);
+                    System.out.println("Ийгиликтуу озгорулду!");
+                    break;
+
+            }
         }
     }
 }

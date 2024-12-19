@@ -51,12 +51,17 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student singIn(String email, String password) {
-        return studentDao.singIn(email,password);
+    public Student singIn(String email ) {
+        return studentDao.singIn(email);
     }
 
     @Override
     public void getAllLessonStudents(String email, String password) {
         studentDao.getAllLessonStudents(email,password);
+    }
+
+    @Override
+    public void updateAdmin(String adminEmail,Student newStudent) {
+        studentDao.updateAdmin(adminEmail,newStudent);
     }
 }
